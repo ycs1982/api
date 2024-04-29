@@ -19,21 +19,21 @@ exports.createUser = async (req, res) => {
     }
 };
 
-exports.updateUser = async (res, res) => {
+exports.updateUser = async (req, res) => {
     try{
     const updateUser = await User.findByIdAndUpdate(req.params.id, req.body,{new: true})
     res.status(200).json(updateUser);
     }catch (error){
-        res.status(400).jason({message: error.message})
+        res.status(400).json({message: error.message})
     }
 }
 
 exports.deleteUser = async (req, res) => {
     try{
         const deleteUser = await User.findByIdAndDelete(req.params.id)
-        res.status(200).jason(deleteUser)
+        res.status(200).json(deleteUser)
     }catch(error){
-        res.status(400).jason({message: error.message})
+        res.status(400).json({message: error.message})
     }
 }
 
